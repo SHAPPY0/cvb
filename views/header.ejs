@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css' />
+	<link rel="stylesheet" href='/stylesheets/bootstrap-datepicker.css' />
+  </head>
+  <body>
+  <div class="header">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"><h3><b style="display:block; margin-top:7px">CVB</b></h3></div>
+      <div class="col-lg-8 col-md-8 col-sm-8">
+     <ul class="menu">
+	 <li><a href="/home">Download CVs</a></li>
+	 <li><a href="/create">Create CV</a></li>
+	 
+ <% if(locals.user){%>
+  <li><a href="/logout" >Logout</a></li>
+	   <li style="text-align:center;font-size:10px; margin-top:3px; color:#5cb85c; padding:10px">Hi,<br /><%= user.username%>
+	   
+	   </li>
+	    <%}%>
+	 </ul>
+      </div>
+    </div>
+    </div>
+</div>

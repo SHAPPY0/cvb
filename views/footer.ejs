@@ -1,0 +1,33 @@
+
+<div class="footer">
+<p class="text-center">All Rights Reserved &copy; 2016</p>
+</div>
+<script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/angular.min.js"></script>
+  <script src="/javascripts/angular-route.min.js"></script>
+  <script src="/javascripts/app.js"></script>
+  <script src="/javascripts/bootstrap-datepicker.js"></script>
+  <script>
+   $('.datepicker').datepicker({
+    	 weekStart:1,
+    	 color: 'blue'  
+	 });
+	 $('.day.active.blue').click(function(){
+	 if($('.datepicker.dropdown-menu').css({'display':'block'}))
+	 {
+	 $('.datepicker.dropdown-menu').hide();
+	 }
+	 });
+	 $('.downloadBtn').click(function(){
+	 	var elm=$(this);
+		var id=elm.attr('id');
+		$('.sample1').attr('href',"sample1/"+id);
+		$('.sample2').attr('href',"sample2/"+id);
+		$('.sample3').attr('href',"sample3/"+id);
+		
+	 	$('.popup-bg').fadeIn(600);
+	 });
+	   </script>
+</body>
+</html>
+   

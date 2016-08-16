@@ -1,0 +1,139 @@
+<%- include header.ejs%>
+<div class="container">
+<div class="row">
+<div class="box content">
+<h4><b><%=title%> of "<%=data.personaldetails.candidatename%>" </b></h4>
+<hr />
+<form action="/edit/<%=data.id%>" method="post">
+<div class="col-md-6">
+<div class="colm_row">
+<p><b>Personal Details</b></p>
+<div class="clmn_content">
+<label>Name</label>
+<input type="text" class="form-control" placeholder="Candidate Name" name="candidatename" value="<%=data.personaldetails.candidatename%>" />
+<label>Permanent Address</label>
+<input type="text" class="form-control" placeholder="Permanent Address" name="permanentaddress" value="<%=data.personaldetails.permanentaddress%>" />
+<label>Permanent City</label>
+<input type="text" class="form-control" placeholder="Permanent City" name="permanentcity" value="<%=data.personaldetails.permanentcity%>" />
+<label>Permanent State</label>
+<input type="text" class="form-control" placeholder="Permanent State" name="permanentstate" value="<%=data.personaldetails.permanentstate%>" />
+<label>DOB</label>
+<input type="text" class="datepicker form-control" placeholder="DOB" name="dob" value="<%=data.personaldetails.dob.toLocaleDateString()%>" />
+<input type="text" class="form-control" placeholder="Email" name="email" value="<%=data.personaldetails.email%>" />
+<input type="text" class="form-control" placeholder="Mobile" name="mobile" value="<%=data.personaldetails.mobile%>" />
+<input type="text" class="form-control" placeholder="Mailing Address" name="mailingaddress" value="<%=data.personaldetails.mailingaddress%>" />
+<input type="text" class="form-control" placeholder="City" name="city" value="<%=data.personaldetails.city%>" />
+<input type="text" class="form-control" placeholder="State" name="state" value="<%=data.personaldetails.state%>" />
+<input type="text" class="form-control" placeholder="Country" name="country" value="<%=data.personaldetails.country%>" />
+</div>
+</div>
+<div class="colm_row">
+<p><b>Skills</b></p>
+<div class="clmn_content">
+<input type="text" class="form-control" placeholder="Primary Skill" name="primaryskill" value="<%=data.skills.primaryskill%>" />
+<input type="text" class="form-control" placeholder="Secondary Skill" name="secondaryskill" value="<%=data.skills.secondaryskill%>" />
+</div>
+</div>
+<div class="colm_row">
+<p><b>Professional Details</b></p>
+<div class="clmn_content">
+<input type="text" class="form-control" placeholder="Total Expereince" name="totalexperience" value="<%=data.professionaldetails.totalexperience%>" />
+<input type="text" class="form-control" placeholder="Employement Type" name="employementtype" value="<%=data.professionaldetails.employementtype%>" />
+</div>
+<%= data.forEach function(xdata){%>
+<div class="clmn_content">
+<p><b>Company 1</b></p>
+<input type="text" class="form-control" placeholder="Company Name" name="companyname" value="<%=xdata.professionaldetails.company.companyname%>" />
+<input type="text" class="form-control" placeholder="Industry" name="industry" value="<%=xdata.professionaldetails.company.industry%>" >
+<input type="text" class="form-control" placeholder="Job Title" name="jobtitle" value="<%=xdata.professionaldetails.company.jobtitle%>" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="prevstartdate" value="<%= xdata.professionaldetails.company.startdate.toLocaleDateString()%>" />
+<%if(xdata.professionaldetails.company.enddate=="Current Working"){%>
+<input type="checkbox" name="" id="prevenddate" name="prevenddate" checked/>
+<%} else{%>
+<input type="checkbox" name="" id="prevenddate" name="prevenddate" />
+<%}%><label for="prevenddate">Current Working</label>
+<input type="text" class="form-control" placeholder="Roles" name="roles" value="<%=xdata.professionaldetails.company.roles%>" />
+</div>
+<%}%>
+
+</div>
+
+<div class="colm_row">
+<p><b>CV Detail</b></p>
+<div class="clmn_content">
+
+<input type="text" class="form-control" placeholder="CV Title" name="cvtitle" value="<%=data.cv.cvtitle%>" />
+<input type="text" class="form-control" placeholder="Job Category" name="jobcategory" value="<%=data.cv.jobcategory%>" >
+<textarea rows="4" class="form-control" placeholder="Objective" name="objective" style="resize:none"><%=data.cv.objective%></textarea> 
+
+</div>
+</div>
+</div>
+ 
+
+<div class="col-md-6">
+<div class="colm_row">
+<p><b>Educational Details</b></p>
+<div class="clmn_content">
+<p><b>High School</b></p>
+<input type="text" class="form-control" placeholder="Course" name="hscourse" readonly value="10th" />
+<input type="text" class="form-control" placeholder="School" name="hsschool" value="<%=data.educationaldetails.highschool.school%>" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="hsstartdate" value="<%=data.educationaldetails.highschool.startdate.toLocaleDateString()%>" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="hsenddate" value="<%=data.educationaldetails.highschool.enddate.toLocaleDateString()%>" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="hspercantage" value="<%=data.educationaldetails.highschool.percantage%>" />
+</div>
+<div class="clmn_content">
+<p><b>Senior Secondary School</b></p>
+<input type="text" class="form-control" placeholder="Course" name="sscourse" readonly value="12th" />
+<input type="text" class="form-control" placeholder="School" name="ssschool" value="<%=data.educationaldetails.seniorsecondaryschool.school%>" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="ssstartdate" value="<%=data.educationaldetails.seniorsecondaryschool.startdate.toLocaleDateString()%>" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="ssenddate" value="<%=data.educationaldetails.seniorsecondaryschool.enddate.toLocaleDateString()%>" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="sspercantage" value="<%=data.educationaldetails.seniorsecondaryschool.percantage
+%>" />
+</div>
+<div class="clmn_content">
+<p><b>Under Graduation</b></p>
+<select class="form-control" name="ug">
+<option>--Select--</option>
+<%
+var options=["B.A", "B.Arch","BCA","BBA","B.COM","BEd","BDS","BHM","B.Pharma","B.Sc.","B.Tech","BE","LLB","MBBS","BVSC","Other"];
+for(var i=0; i<options.length; i++)
+{
+var selected =(data.educationaldetails.undergraduation.course==options[i])?"selected":"";
+%><option value="<%=options[i]%>"<%=selected%>><%=options[i]%></option><%
+}
+%>
+</select>
+<input type="text" class="form-control" placeholder="University" name="uguniversity" value="<%=data.educationaldetails.undergraduation.university%>" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="ugstartdate" value="<%=data.educationaldetails.undergraduation.startdate.toLocaleDateString()%>" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="ugenddate" value="<%=data.educationaldetails.undergraduation.enddate.toLocaleDateString()
+%>" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="ugpercantage" value="<%=data.educationaldetails.undergraduation.percantage%>" />
+</div>
+<div class="clmn_content">
+<p><b>Post Graduation</b></p>
+<select class="form-control" name="pg">
+<option>--Select--</option>
+<%
+var options=["CA", "C.S","ICWA (CMA)","Integrated PG", "L.L.M", "M.A", "M.Arch", "M.Ed", "M.Pharma", "M.Sc", "M.Tech", "M.B.A", "P.G.D.M", "M.C.A", "M.S", "M.V.S.C", "Other"];
+for(var i=0; i<options.length; i++)
+{
+var selected =(data.educationaldetails.postgraduation.course==options[i])?"selected":"";
+%><option value="<%=options[i]%>"<%=selected%>><%=options[i]%></option><%
+}
+%>
+</select>
+ 
+<input type="text" class="form-control" placeholder="University" name="pguniversity" value="<%=data.educationaldetails.postgraduation.university%>" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="pgstartdate" value="<%=data.educationaldetails.postgraduation.startdate.toLocaleDateString()%>" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="pgenddate" value="<%=data.educationaldetails.postgraduation.enddate.toLocaleDateString()%>" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="pgpercantage" value="<%=data.educationaldetails.postgraduation.percantage%>" />
+</div>
+</div>
+</div>
+<button class="btn btn-success">Update</button>
+</form>
+</div>
+</div>
+</div>
+<%- include footer.ejs%>

@@ -1,0 +1,51 @@
+<%- include header.ejs%>
+<div class="container">
+<div class="row">
+<div class="box_content" style="margin:40px 0px">
+<div class="col-md-3"></div>
+<div class="col-md-6 col-xs-12">
+<h4><b><%=title%></b></h4><br />
+<ul class="cv_row">
+<!---search form--->
+<form action="/search" method="post">
+<input type="text" class="form-control" placeholder="Search Candidate" name="searchbox" style="width:80%;float:left"/>
+<button class="btn btn-success" style="width:20%;">Search</button>
+</form>
+<p style="font-size:13px; color:#fff;margin:10px 0px !important; background:#32375f; padding:3px 10px ">Total " <b><%=data.length%></b> " CV Created </p>
+
+
+<!----cv lists----->
+<% data.forEach(function(cvdata){%>
+
+<li>
+<span><%= cvdata.personaldetails.candidatename%></span> 
+<span class="pull-right edit" style="margin-left:10px"><a href="delete/<%= cvdata.id%>" class="btn btn-danger btn-xs">X</a></span>
+<span class="pull-right download"><a  class="btn btn-success btn-xs downloadBtn" id="<%= cvdata.id%>"  >Download</a></span>
+<span class="pull-right edit" style="margin-right:10px"><a href="edit/<%= cvdata.id%>" class="btn btn-danger btn-xs">Edit</a></span>
+</li>
+
+<%})%>
+</ul>
+</div>
+<div class="col-md-3"></div>
+</div>
+</div>
+</div>
+  		<div class="popup-bg">
+		<div class="popuppanel">
+		<div class="col-md-4">
+		<a class="sample1" href=""><img src="/images/s1.jpg" width="100%"></a>
+		</div>
+		<div class="col-md-4">
+		<a class="sample2" href=""><img src="/images/s2.jpg" width="100%"></a>
+		</div>
+		<div class="col-md-4">
+		<a class="sample3" href=""><img src="/images/s3.jpg" width="100%"></a>
+		</div>
+		</div>
+		</div>
+<style>
+ul{padding:0px}
+.cv_row li{list-style-type:none; border-bottom:1px solid #848484; padding:10px 0px}
+</style>
+<%- include footer.ejs%>

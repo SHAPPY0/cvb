@@ -1,0 +1,111 @@
+<%- include header.ejs%>
+<style>
+h4,h3, h2, h1 p{padding:0px !important; margin:0px !important}
+.marign-50{margin-top:50px; margin-bottom:50px}
+.ma-30{margin-top:30px; margin-bottom:30px}
+.border{border:1px solid #ccc; margin:30px auto; width:70%;  padding:20px 25px;}
+.container_details{float:right}
+</style>
+<div class="container">
+<div id="buttons"></div>
+
+<br />
+	<div id="JSFiddle">
+	
+<table style="width:70%; border:1px solid #ccc; padding:20px">
+<tr>
+<td width="50%" style="vertical-align:top"><p style="font-size:28px; margin:0px"><b><%=data.personaldetails.candidatename%></b></p><p style=" margin:0px;font-size: 14px;"> <%=data.professionaldetails.totalexperience%>  Years of Experience</p></td>
+<td width="50%" style="vertical-align:top;font-size: 14px;">
+<div style="float:right">
+<p style=" margin:0px; margin-bottom:5px"><%=data.personaldetails.permanentaddress%>,<%=data.personaldetails.permanentcity%>, <%=data.personaldetails.permanentstate%></p>
+<p style=" margin:0px; margin-bottom:5px"><b>Mobile:</b> +91-<%=data.personaldetails.mobile%></p>
+<p style=" margin:0px; margin-bottom:5px"><b>Email:</b><a href="mailto:<%=data.personaldetails.email%>"><%=data.personaldetails.email%></a></p>
+</div>
+</td>
+</tr>
+<tr><td height="25px" colspan="2" ></td></tr>
+<tr><td height="25px" colspan="2" style="border-top:1px solid #ccc"></td></tr>
+<tr>
+<td colspan="2" style="font-size: 14px;">
+<table width="100%">
+<td width="50%"><div>
+<p style=" margin:0px; margin-bottom:5px"><b>Resume ID:</b> <%=data.resumeID%></p>
+<p style=" margin:0px; margin-bottom:5px"><b>Location:</b> <%=data.personaldetails.mailingaddress%>, <%=data.personaldetails.city%>, <%=data.personaldetails.state%></p>
+<p style=" margin:0px; margin-bottom:5px"><b>Category:</b>  <%=data.cv.jobcategory%></p>
+</div></td>
+<td width="50%"><div> 
+<p style=" margin:0px; margin-bottom:5px"><b>Employment Type:</b> <%=data.professionaldetails.employementtype%></p>
+<p style=" margin:0px; margin-bottom:5px"><b>Posted:</b> <%=data.posted%></p></p>
+</div></td>
+</table>
+</td>
+</tr>
+<tr><td height="25px" colspan="2" ></td></tr>
+<tr>
+<td colspan="2" style="font-size: 14px;">
+<h4 style="font-size:15px"><b>Educational Details:</b></h4><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp 
+<div>
+<p style="margin:0px; margin-bottom:5px"> <b><%=data.educationaldetails.highschool.course%></b>: (<%=data.educationaldetails.highschool.startdate.toLocaleDateString('en-US"', {year: 'numeric'})%>-<%=data.educationaldetails.highschool.enddate.toLocaleDateString('en-US"', {year: 'numeric'})%>)</p>
+<p style="margin:0px"><%=data.educationaldetails.highschool.school%></p>
+</div>
+<div>
+<p style="margin:0px; margin-bottom:5px"> <b><%=data.educationaldetails.seniorsecondaryschool.course%></b>: (<%=data.educationaldetails.seniorsecondaryschool.startdate.toLocaleDateString('en-US"', {year: 'numeric'})%>-<%=data.educationaldetails.seniorsecondaryschool.enddate.toLocaleDateString('en-US"', {year: 'numeric'})%>)</p>
+<p style="margin:0px"><%=data.educationaldetails.seniorsecondaryschool.school%></p>
+</div>
+<div>
+<p style="margin:0px; margin-bottom:5px"> <b><%=data.educationaldetails.undergraduation.course%></b>: (<%=data.educationaldetails.undergraduation.startdate.toLocaleDateString('en-US"', {year: 'numeric'})%>-<%=data.educationaldetails.undergraduation.enddate.toLocaleDateString('en-US"', {year: 'numeric'})%>)</p>
+<p style="margin:0px"><%=data.educationaldetails.undergraduation.university%></p>
+</div>
+
+<div>
+<p style="margin:0px; margin-bottom:5px"> <b><%=data.educationaldetails.postgraduation.course%></b>: (<%=data.educationaldetails.postgraduation.startdate.toLocaleDateString('en-US"', {year: 'numeric'})%>-<%=data.educationaldetails.postgraduation.enddate.toLocaleDateString('en-US"', {year: 'numeric'})%>)</p>
+<p style="margin:0px"><%=data.educationaldetails.postgraduation.university%></p>
+</div>
+</td>
+</tr>
+<tr><td height="25px" colspan="2" ></td></tr>
+<tr>
+<td colspan="2" style="font-size: 14px;">
+<h4 style="font-size:15px"><b>Work Experience:;</b></h4><br />
+<div>
+<p style="margin:0px; margin-bottom:5px"> <b><%=data.professionaldetails.company.jobtitle%></b>: (<%=data.professionaldetails.company.startdate.toLocaleDateString('en-US"', {year: 'numeric'})%>-<%=data.professionaldetails.company.enddate%>)</p>
+<p style="margin:0px; margin-bottom:5px"><i><%=data.professionaldetails.company.companyname%></i></p>
+<p style="margin:0px; margin-bottom:5px"><%=data.professionaldetails.company.roles%></p>
+</div>
+</td>
+</tr>
+<tr><td height="25px" colspan="2" ></td></tr>
+<tr>
+<td colspan="2" style="font-size: 14px;">
+<p><b style="font-size:15px">Total Works Experience: </b><br /> &nbsp;<%=data.professionaldetails.totalexperience%> Years </p>
+<div>
+ 
+</div>
+</td>
+</tr>
+<tr>
+<td colspan="2" style="font-size: 14px;"><br />
+<p><b style="font-size:15px">Skills: </b> <br />&nbsp;<%=data.skills.primaryskill%>, <%=data.skills.secondaryskill%></p>
+<div>
+ 
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<%- include footer.ejs%>
+<script src="/javascripts/jquery.min.js"></script>
+<script src="/javascripts/xeponline.jqplugin.js"></script>
+<script>
+var click="return xepOnline.Formatter.Format('JSFiddle', {render:'download'})";
+jQuery('#buttons').append('<span onclick="'+ click +'" class="btnn" ><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMwAAADMCAMAAAAI/LzAAAAAclBMVEUAAAD///+UlJTIyMgsLCzc3NysrKz29vb7+/urq6uBgYF5eXmwsLCoqKgSEhLCwsKhoaEcHByJiYnx8fFERETn5+dSUlJmZmbOzs5xcXEKCgpfX1+Pj49ubm5JSUk+Pj6cnJwwMDDh4eEYGBgkJCRXV1dMNvUgAAAFZUlEQVR4nO2d6XaiQBBGaTcILkQFwYiGJJP3f8WJRByFXoqioYs5df/qsftKfYC9oOf1zfaS5pNJnl62vTfVN7MwEjeicOa6N904ZeKB7OS6P11Y+uIJf+m6R3h2gagR7Fz3CUu6r7sIsU9d9wrHn3nTRYj5H9f9QrGUuQgxzthIiqwsNNf9wvAudxHi3XXPEOxUMmM8oUUqmch1zxBIz2Xl+cx1zxCwDFVYhiosQxWWoQrLUIVlqMIyVGEZqrAMVViGKixDFZahCstQhWWowjJUYRmqsAxVWIYqLEMVlqEKy1CFZajCMlRhGaqwDFVYhiosQxWWoQrLUIVlqMIyVBmBzOY7zPPd+cP8zi4yH+ddnoffm+791TBbzxM/CIL959S4sxcvc5p+7n8a8ZP5ur99kNvicXdvFuvfjZWJH7dD+8WXvf4/8p7VenXWvh0pc669O+tl8+Cl0bsg1L0fJxM2tkPPL3Y9rnxMm93SbiJHydS3qV+Z2n+MQCHtmMYGIyPfQVzYdrk0Dr/JBiGj2A0d2C60taJnvjI37WVCSY2VrC3LqNpR56a1jCwvtzbsuih3XQtlpbWVUdRYid3Ts64lhU1LGUQLWOTnshvy3LSTUealpLAq86prSp6bVjLqvJS8WpXJtW1J66CNjLbGfsitypwMrUlsWsiYXITdh+98mZpr5gYuo8/LFcu3zonRpn5swDKGvPyQ2HXxjqYGG5UGlTHWmBBHyzLyJ+LobIAyABf7z90xF0MtNzAZc156eVrVi/krDB7rASRzVNyMP/Ji38V04fzl4UuEyABqzPIF886qlQ1ABuKy6sfFewNU2r/cmGUAeREvbz3JeG+AY3PPjVEGkpdVby5eq9yYZBzmpQKSmxAiEwI+qK+8VMBzo5dxm5e7DTQ3WhnneakA5kYnQyAvFbDcaGQo5KUClJujWuZIIi93G8Cx8ZWpCAAug+SlApKbDgyUlwpIbtAMlZeKzaI/l0W/c5kyejs2Qx+Xkp5yM3BeKno5Nk6Oi9dPbhzkpcK6zcKZiqeeUENie4qsJVZz4yovFTZz4zAvFYC7Thi9jI+1xVJuHOelwkpuXOelwkZuCOSlonNuSOSlomNurOflkK9fVuvihPuN16nScNf9t1OxXizW+aHxynme/P7OTeaoqd0uucHlJZ//Tk0Gyfx5Fd/laZFf8o35cHSloWrs+2mSNXtY9xTW/lwhmGC+K6QNxmUzqQ2X7O+TD+fmP6sUiBZwuUHlpWj2+FZqF9m0OOafVTC5QeUllXxQUlbal2TxJXaJV+tKw52TpQNv0+vKh+Z61Q7NtLx64q6V8q/supZ3q/jPi0/ACnkJrSoNd335+JR/WrT1YsVgqXrxpZZNi7vOFe5+TDW148fSMJVgb5fAucHewyhLOVX/TQx67BqYG+yXpR6133kT1UsR+u/vQLlBj8OoQi7ERC2DX7UOyQ0yLz/MpJeS3mQAuelwzz+4jKnSuoz1DS+jt+k0bulARpcbfF4cyWhmPDrOWTiRUY1AdR1TciMjz03ncX5HMrLcdMuLQxlJbizM8TmT8fKnX7GJjTX97mS8w+tdJ3ltjnAhcCjjee9pMc2yaZFa2p7kVMY2LMMyA8AyLDMALMMyA8AyLDMALMMyA8AyLDMALMMyA8Ay/5VMFs9IEtcfgAeR2WdTkmR7VY81MuODZajCMlRhGaqwDFVYhiosQ5WJevXs+Nip1zWPj1S54nx8+LFmmfDYuC7EXgKeNDQGguvTu/6XQ/O7Qv6g/FE9Jva39V/GB8uOgfvjaU+jPzb7h0ftHqJRnwWC6GmN4XYZjfZ640fL+u6YbZzuJiNkl8Z3lb9tZGSRtW2XyQAAAABJRU5ErkJggg==" width="20px"></span>');
+</script>
+<style>
+table{border-collapse:inherit !important}
+.btnn{ background:#000; padding:5px; cursor:pointer ;  right: 416px;
+    top: 90px; position:absolute;  }
+	
+</style>

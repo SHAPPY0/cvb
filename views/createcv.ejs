@@ -1,0 +1,156 @@
+<%- include header.ejs%>
+<div class="container">
+<div class="row">
+<div class="box content">
+<h4><b><%=title%></b></h4>
+<hr />
+<form action="/create" method="post">
+<div class="col-md-6">
+<div class="colm_row">
+<p><b>Personal Details</b></p>
+<div class="clmn_content" >
+<input type="text" class="form-control" placeholder="Candidate Name" name="candidatename" />
+<input type="text" class="form-control" placeholder="Permanent Address" name="permanentaddress" />
+<input type="text" class="form-control" placeholder="Permanent City" name="permanentcity" />
+<input type="text" class="form-control" placeholder="Permanent State" name="permanentstate" />
+<input type="text" class="datepicker form-control" placeholder="DOB" name="dob" id="datepicker1" />
+<input type="text" class="form-control" placeholder="Email" name="email" />
+<input type="text" class="form-control" placeholder="Mobile" name="mobile" />
+<input type="text" class="form-control" placeholder="Mailing Address" name="mailingaddress" />
+<span ng-controller="CountryCntrl">
+  <select id="country" ng-model="states" ng-options="country for (country, states) in countries" name="country" class="form-control">
+   <option value=''>Select</option>
+   </select>
+<select id="state" ng-disabled="!states" ng-model="cities" ng-options="state for (state,city) in states" name="state" class="form-control">
+<option value=''>Select</option>
+</select>
+<select id="city" ng-disabled="!cities || !states" ng-model="city" name="city" class="form-control">
+<option value=''>Select</option> 
+<option ng-repeat="city in cities" value='{{city}}'>{{city}}</option></select> 
+
+</span>
+</div>
+</div>
+<div class="colm_row">
+<p><b>Skills</b></p>
+<div class="clmn_content">
+<input type="text" class="form-control" placeholder="Primary Skill" name="primaryskill" />
+<input type="text" class="form-control" placeholder="Secondary Skill" name="secondaryskill" />
+</div>
+</div>
+<div class="colm_row">
+<p><b>Professional Details</b></p>
+<div class="clmn_content">
+<input type="text" class="form-control" placeholder="Total Experience" name="totalexperience" />
+<input type="text" class="form-control" placeholder="Employement Type" name="employementtype" />
+</div>
+<div class="clmn_content">
+<p><b>Company 1</b></p>
+<input type="text" class="form-control" placeholder="Company Name" name="companyname" />
+<input type="text" class="form-control" placeholder="Industry" name="industry" >
+<input type="text" class="form-control" placeholder="Job Title" name="jobtitle" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="prevstartdate" />
+<input type="checkbox"  id="prevenddate" name=" prevenddate" value="Current Working"/><label for="prevenddate">Current Working</label>
+<input type="text" class="form-control" placeholder="Roles" name=" roles" />
+</div>
+ </div>
+ 
+ 
+<div class="colm_row">
+<p><b>CV Detail</b></p>
+<div class="clmn_content">
+
+<input type="text" class="form-control" placeholder="CV Title" name="cvtitle" />
+<input type="text" class="form-control" placeholder="Job Category" name="jobcategory" >
+<input type="text" class="form-control" placeholder="Objective" name="objective" />
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="col-md-6">
+<div class="colm_row">
+<p><b>Educational Details</b></p>
+<div class="clmn_content">
+<p><b>High School</b></p>
+<input type="text" class="form-control" placeholder="Course" name="hscourse" readonly value="10th" />
+<input type="text" class="form-control" placeholder="School" name="hsschool" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="hsstartdate" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="hsenddate" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="hspercantage" />
+</div>
+<div class="clmn_content">
+<p><b>Senior Secondary School</b></p>
+<input type="text" class="form-control" placeholder="Course" name="sscourse" readonly value="12th" />
+<input type="text" class="form-control" placeholder="School" name="ssschool" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="ssstartdate" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="ssenddate" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="sspercantage" />
+</div>
+<div class="clmn_content">
+<p><b>Under Graduation</b></p>
+<select class="form-control" name="ug">
+<option>--Select--</option>
+<option value="B.A.">B.A.</option>
+<option value="B.Arch.">B.Arch.</option>
+<option value="BCA">BCA</option>
+<option value="BBA">BBA</option>
+<option value="B.COM">B.COM</option>
+<option value="BEd">BEd</option>
+<option value="BDS">BDS</option>
+<option value="BHM">BHM</option>
+<option value="B.Pharma">B.Pharma</option>
+<option value="B.Sc.">B.Sc.</option>
+<option value="B.Tech">B.Tech</option>
+<option value="BE">BE</option>
+<option value="LLB">LLB</option>
+<option value="MBBS">MBBS</option>
+<option value="BVSC">BVSC</option>
+<option value="Other">Other</option>
+</select>
+<input type="text" class="form-control" placeholder="University" name="uguniversity" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="ugstartdate" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="ugenddate" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="ugpercantage" />
+</div>
+<div class="clmn_content">
+<p><b>Post Graduation</b></p>
+<select class="form-control" name="pg">
+  <option  value="">--Select--</option>
+  <option value="CA">CA</option>
+  <option value="C.S.">C.S.</option>
+  <option  value="ICWA (CMA)">ICWA (CMA)</option>
+  <option value="Integrated PG">Integrated PG</option>
+  <option value="L.L.M" >L.L.M</option>
+   <option value="M.A">M.A</option>
+   <option value="M.Arch">M.Arch</option>
+   <option value="M.Com">M.Com</option>
+   <option value="M.Ed">M.Ed</option>
+    <option value="M.Pharma">M.Pharma</option>
+   <option  value="M.Sc">M.Sc</option>
+   <option  value="M.Tech">M.Tech</option>
+   <option value="M.B.A">M.B.A</option>
+   <option value="P.G.D.M.">P.G.D.M.</option>
+   <option value="M.C.A.">M.C.A.</option>
+   <option value="M.S.">M.S.</option>
+    <option value="M.V.S.C.">M.V.S.C.</option>
+     <option value="M.C.M.">M.C.M.</option>
+     <option value="Other">Other</option>
+</select>
+<input type="text" class="form-control" placeholder="University" name="pguniversity" />
+<input type="text" class="datepicker form-control" placeholder="Start Date" name="pgstartdate" />
+<input type="text" class="datepicker form-control" placeholder="End Date" name="pgenddate" />
+<input type="text" class="form-control" placeholder="Percantage/CGPA" name="pgpercantage" />
+</div>
+</div>
+</div>
+<button class="btn btn-success">Create</button>
+</form>
+</div>
+</div>
+</div>
+<%- include footer.ejs%>

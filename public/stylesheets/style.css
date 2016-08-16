@@ -1,0 +1,21 @@
+body{  margin:0; padding:0;}
+a{text-decoration:none !important}
+h1, h2, h3, h4, p{margin:0px !important}
+.header a {
+  color: #fff !important;
+}
+.header a:hover{background:#5cb85c}
+.header{background:#32375f; color:#fff;  margin-bottom:30px;   box-shadow: 0px 1px 2px #737373;}
+.menu{ float:right; margin:0px}
+.menu li{display:inline-block;}
+.menu li a{color:#fff; padding:10px; text-transform:uppercase; display:block }
+.form{margin:20px auto;  padding:10px}
+.colm_row{border:1px solid #32375f; float:left; width:100%; margin-bottom:10px}
+.colm_row p b{background:#32375f; color:#fff; padding:10px; display:block}
+.clmn_content{padding:25px;}
+.form-control{border-radius:0px !important;border-bottom: 2px solid #32375f !important; margin-bottom:10px	}
+.popup-bg{background:rgba(0, 0, 0, 0.82); position:absolute; top:0; left:0; bottom:0; float:left; width:100%; display:none}
+.popuppanel{width:60%; margin:12% auto; display:block	}
+.popuppanel img{min-height:285px}
+
+.footer{background: #f3f2f2; padding: 10px 0px; color: #ccc8c8; margin-top:30px}
